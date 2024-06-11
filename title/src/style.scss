@@ -1,0 +1,170 @@
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+$bg-color: #929fad;
+
+body {
+	width: 100%;
+	height: 100vh;
+	background-color: $bg-color;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	overflow: hidden;
+}
+
+.icons {
+	display: none;
+}
+
+$animation-duration: 5000ms;
+$animation-timing-function: ease-in-out;
+$animation-iteration-count: infinite;
+.container {
+	position: relative;
+	width: 400px;
+	height: 400px;
+	.text-container,
+	.shadow-container {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+	}
+	.text {
+		position: absolute;
+		top: 50%;
+		font-size: 12rem;
+		font-family: "Bebas Neue";
+		font-weight: bold;
+		-webkit-text-stroke: 2px #161618;
+		letter-spacing: 4px;
+		user-select: none;
+		pointer-events: none;
+		
+		.icon {
+			position: absolute;
+			width: 1vw;
+			height: 1vw;
+			stroke-width: 25px;
+			stroke: #161618;
+			transform: translate(-50%, -50%);
+			animation: scaleUpdown $animation-duration $animation-timing-function
+				$animation-iteration-count;
+			&:nth-child(1) {
+				top: 30%;
+				left: 2.5%;
+				animation-delay: 0;
+			}
+			&:nth-child(2) {
+				top: 62%;
+				left: 24.5%;
+				animation-delay: -200ms;
+			}
+			&:nth-child(3) {
+				top: 13%;
+				left: 70%;
+				animation-delay: -480ms;
+			}
+			&:nth-child(4) {
+				top: 56%;
+				left: 99.5%;
+				animation-delay: -940ms;
+			}
+		}
+	}
+
+	.text-container {
+		z-index: 1;
+		.text {
+			.icon {
+				fill: #f2f2f2;
+			}
+			@for $i from 1 through 7 {
+				&:nth-child(#{$i}) {
+					opacity: 0;
+					left: 40% + $i * 2.5;
+					transform: translate(-50%, -50%);
+					animation: upDown
+						$animation-duration
+						$animation-timing-function
+						$animation-iteration-count;
+					animation-delay: calc(0s + (0.1s * #{$i}));
+					z-index: #{-$i};
+				}
+			}
+		}
+	}
+
+	.shadow-container {
+		z-index: 0;
+		.text {
+			-webkit-text-stroke: 0;
+			letter-spacing: -2px;
+			color: #6d7881;
+			top: 54%;
+			@for $i from 1 through 7 {
+				&:nth-child(#{$i}) {
+					opacity: 0;
+					left: 35% + $i * 2.5;
+					transform: translate(-50%, -50%);
+					animation: upDown
+						$animation-duration
+						$animation-timing-function
+						$animation-iteration-count;
+					animation-delay: calc(0s + (0.1s * #{$i}));
+					z-index: #{- ($i + 7)};
+				}
+			}
+			.icon {
+				fill: #6d7881;
+				stroke-width: 0;
+			}
+		}
+	}
+}
+
+@keyframes upDown {
+	0%,
+	100% {
+		opacity: 1;
+		transform: translate(-50%, -70%);
+	}
+	50% {
+		transform: translate(-50%, -30%);
+	}
+}
+@keyframes scaleUpdown {
+	0% {
+		transform: translate(-50%, -50%) scale(1) rotate(0);
+	}
+	50% {
+		transform: translate(-50%, -50%) scale(1.4) rotate(90deg);
+	}
+	100% {
+		transform: translate(-50%, -50%) scale(1) rotate(180deg);
+	}
+}
+
+
+.support{
+	position: absolute;
+	right: 10px;
+	bottom: 10px;
+	padding: 10px;
+	display: flex;
+	a{
+		margin: 0 10px;
+		color: #fff;
+		font-size: 1.8rem;
+		transition: all 200ms ease;
+		&:hover{
+			color: rgba(200, 200, 200, 0.85)
+		}
+	}
+
+}

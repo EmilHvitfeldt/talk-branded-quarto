@@ -1,0 +1,4 @@
+- source: index.qmd
+  quarto-pub:
+    - id: 4e606c18-e358-473a-8082-45117c62e59c
+      url: 'https://emilhvitfeldt.quarto.pub/talk-quarto-theming-positconf'
