@@ -173,15 +173,15 @@ that you know
 what you want
 :::
 
-## {background-image="branding/1.png"}
+## {background-image="branding/1.webp"}
 
-## {background-image="branding/2.png"}
+## {background-image="branding/2.webp"}
 
-## {background-image="branding/3.png"}
+## {background-image="branding/3.webp"}
 
-## {background-image="branding/4.png"}
+## {background-image="branding/4.webp"}
 
-## {background-image="branding/5.png"}
+## {background-image="branding/5.webp"}
 
 ## HTML documents
 
@@ -420,7 +420,7 @@ index.html
 
 ::: columns
 ::: {.column width="60%"}
-![](drob.png)
+![](drob.webp)
 :::
 
 ::: {.column .fragment width="40%"}
